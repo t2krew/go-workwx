@@ -231,6 +231,12 @@ Name|XML|Type|Doc
 `UserID`|`UserID`|`string`|企业服务人员的UserID
 `ExternalUserID`|`ExternalUserID`|`string`|外部联系人的userid，注意不是企业成员的帐号
 
+### `rxEventChangeExternalChatMemChangeItem` 接收的事件消息，客户群变更用户列表
+Name|XML| Type           |Doc
+:---|:--|:---------------|:--
+`Item`|`Item`| `string`|用户昵称
+
+
 ### `rxEventChangeExternalChat` 接收的事件消息，客户群变更事件
 
 Name|XML| Type           |Doc
@@ -244,7 +250,7 @@ Name|XML| Type           |Doc
 `JoinScene`|`JoinScene`| `string`|成员的入群方式
 `QuitScene`|`QuitScene`| `string`|成员的退群方式
 `MemChangeCnt`|`MemChangeCnt`| `int`|成员变更数量
-`MemChangeList`|`MemChangeList`| `[]string`|变更的成员列表
+`MemChangeList`|`MemChangeList`| `[]rxEventChangeExternalChatMemChangeItem`|变更的成员列表
 `LastMemVer`|`LastMemVer`| `string`|变更前的群成员版本号
 `CurMemVer`|`CurMemVer`| `string`|变更后的群成员版本号
 

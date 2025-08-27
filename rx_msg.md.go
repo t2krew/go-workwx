@@ -258,6 +258,12 @@ type rxEventTransferFail struct {
 	ExternalUserID string `xml:"ExternalUserID"`
 }
 
+// rxEventChangeExternalChatMemChangeItem 接收的事件消息，客户群变更用户列表
+type rxEventChangeExternalChatMemChangeItem struct {
+	// Item 用户昵称
+	Item string `xml:"Item"`
+}
+
 // rxEventChangeExternalChat 接收的事件消息，客户群变更事件
 type rxEventChangeExternalChat struct {
 	// ToUserName 企业微信CorpID
@@ -279,7 +285,7 @@ type rxEventChangeExternalChat struct {
 	// MemChangeCnt 成员变更数量
 	MemChangeCnt int `xml:"MemChangeCnt"`
 	// MemChangeList 变更的成员列表
-	MemChangeList []string `xml:"MemChangeList"`
+	MemChangeList []rxEventChangeExternalChatMemChangeItem `xml:"MemChangeList"`
 	// LastMemVer 变更前的群成员版本号
 	LastMemVer string `xml:"LastMemVer"`
 	// CurMemVer 变更后的群成员版本号
