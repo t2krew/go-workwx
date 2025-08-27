@@ -699,7 +699,7 @@ func (r *rxEventChangeExternalChat) GetMemChangeCnt() int {
 	return r.MemChangeCnt
 }
 
-func (r *rxEventChangeExternalChat) GetMemChangeList() []string {
+func (r *rxEventChangeExternalChat) GetMemChangeList() []rxEventChangeExternalChatMemChangeItem {
 	return r.MemChangeList
 }
 
