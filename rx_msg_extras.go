@@ -643,7 +643,7 @@ type EventChangeExternalChat interface {
 
 	GetMemChangeCnt() int
 
-	GetMemChangeList() []string
+	GetMemChangeList() []rxEventChangeExternalChatMemChangeItem
 
 	GetLastMemVer() string
 
