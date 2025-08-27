@@ -91,6 +91,27 @@ const ChangeTypeCreateUser ChangeType = "create_user"
 // ChangeTypeUpdateUser 更新成员事件
 const ChangeTypeUpdateUser ChangeType = "update_user"
 
+// ChangeTypeUpdate 客户群变更事件
+const ChangeTypeUpdate ChangeType = "update"
+
+// UpdateDetail 变更详情
+type UpdateDetail string
+
+// UpdateDetailAddMember 成员入群
+const UpdateDetailAddMember UpdateDetail = "add_member"
+
+// UpdateDetailDeleteMember 成员退群
+const UpdateDetailDeleteMember UpdateDetail = "del_member"
+
+// UpdateDetailChangeOwner 群主变更
+const UpdateDetailChangeOwner UpdateDetail = "change_owner"
+
+// UpdateDetailUpdateName 群名变更
+const UpdateDetailUpdateName UpdateDetail = "change_name"
+
+// UpdateDetailChangeNotice 群公告变更
+const UpdateDetailChangeNotice UpdateDetail = "change_notice"
+
 // EventTypeAppMenuClick 点击菜单
 const EventTypeAppMenuClick = "click"
 
@@ -247,6 +268,22 @@ type rxEventChangeExternalChat struct {
 	FailReason string `xml:"FailReason"`
 	// ChatID 群ID
 	ChatID string `xml:"ChatId"`
+	// ChangeType 变更类型
+	ChangeType ChangeType `xml:"ChangeType"`
+	// UpdateDetail 变更详情
+	UpdateDetail UpdateDetail `xml:"UpdateDetail"`
+	// JoinScene 成员的入群方式
+	JoinScene string `xml:"JoinScene"`
+	// QuitScene 成员的退群方式
+	QuitScene string `xml:"QuitScene"`
+	// MemChangeCnt 成员变更数量
+	MemChangeCnt int `xml:"MemChangeCnt"`
+	// MemChangeList 变更的成员列表
+	MemChangeList []string `xml:"MemChangeList"`
+	// LastMemVer 变更前的群成员版本号
+	LastMemVer string `xml:"LastMemVer"`
+	// CurMemVer 变更后的群成员版本号
+	CurMemVer string `xml:"CurMemVer"`
 }
 
 // rxEventSysApprovalChange 接收的事件消息，审批申请状态变化回调通知

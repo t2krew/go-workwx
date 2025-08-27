@@ -632,6 +632,22 @@ type EventChangeExternalChat interface {
 
 	// GetFailReason 接替失败的原因, customer_refused-客户拒绝， customer_limit_exceed-接替成员的客户数达到上限
 	GetFailReason() string
+
+	GetChangeType() ChangeType
+
+	GetUpdateDetail() UpdateDetail
+
+	GetJoinScene() string
+
+	GetQuitScene() string
+
+	GetMemChangeCnt() int
+
+	GetMemChangeList() []string
+
+	GetLastMemVer() string
+
+	GetCurMemVer() string
 }
 
 var _ EventChangeExternalChat = (*rxEventChangeExternalChat)(nil)
@@ -661,6 +677,38 @@ func (r *rxEventChangeExternalChat) GetFromUserName() string {
 
 func (r *rxEventChangeExternalChat) GetFailReason() string {
 	return r.FailReason
+}
+
+func (r *rxEventChangeExternalChat) GetChangeType() ChangeType {
+	return r.ChangeType
+}
+
+func (r *rxEventChangeExternalChat) GetUpdateDetail() UpdateDetail {
+	return r.UpdateDetail
+}
+
+func (r *rxEventChangeExternalChat) GetJoinScene() string {
+	return r.JoinScene
+}
+
+func (r *rxEventChangeExternalChat) GetQuitScene() string {
+	return r.QuitScene
+}
+
+func (r *rxEventChangeExternalChat) GetMemChangeCnt() int {
+	return r.MemChangeCnt
+}
+
+func (r *rxEventChangeExternalChat) GetMemChangeList() []string {
+	return r.MemChangeList
+}
+
+func (r *rxEventChangeExternalChat) GetLastMemVer() string {
+	return r.LastMemVer
+}
+
+func (r *rxEventChangeExternalChat) GetCurMemVer() string {
+	return r.CurMemVer
 }
 
 // EventSysApprovalChange 审批申请状态变化回调通知

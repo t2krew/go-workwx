@@ -85,6 +85,27 @@ const ChangeTypeCreateUser ChangeType = "create_user"
 // ChangeTypeUpdateUser 更新成员事件
 const ChangeTypeUpdateUser ChangeType = "update_user"
 
+// ChangeTypeUpdate 客户群变更事件
+const ChangeTypeUpdate ChangeType = "update"
+
+// UpdateDetail 变更详情
+type UpdateDetail string
+
+// UpdateDetailAddMember 成员入群
+const UpdateDetailAddMember UpdateDetail = "add_member"
+
+// UpdateDetailDeleteMember 成员退群
+const UpdateDetailDeleteMember UpdateDetail = "del_member"
+
+// UpdateDetailChangeOwner 群主变更
+const UpdateDetailChangeOwner UpdateDetail = "change_owner"
+
+// UpdateDetailUpdateName 群名变更
+const UpdateDetailUpdateName UpdateDetail = "change_name"
+
+// UpdateDetailChangeNotice 群公告变更
+const UpdateDetailChangeNotice UpdateDetail = "change_notice"
+
 // EventTypeAppMenuClick 点击菜单
 const EventTypeAppMenuClick = "click"
 
@@ -212,12 +233,21 @@ Name|XML|Type|Doc
 
 ### `rxEventChangeExternalChat` 接收的事件消息，客户群变更事件
 
-Name|XML|Type|Doc
-:---|:--|:---|:--
-`ToUserName`|`ToUserName`|`string`|企业微信CorpID
-`FromUserName`|`FromUserName`|`string`|此事件该值固定为sys，表示该消息由系统生成
-`FailReason`|`FailReason`|`string`|接替失败的原因, customer_refused-客户拒绝， customer_limit_exceed-接替成员的客户数达到上限
-`ChatID`|`ChatId`|`string`|群ID
+Name|XML| Type           |Doc
+:---|:--|:---------------|:--
+`ToUserName`|`ToUserName`| `string`|企业微信CorpID
+`FromUserName`|`FromUserName`| `string`|此事件该值固定为sys，表示该消息由系统生成
+`FailReason`|`FailReason`| `string`|接替失败的原因, customer_refused-客户拒绝， customer_limit_exceed-接替成员的客户数达到上限
+`ChatID`|`ChatId`| `string`|群ID
+`ChangeType`|`ChangeType`| `ChangeType`|变更类型
+`UpdateDetail`|`UpdateDetail`| `UpdateDetail` |变更详情
+`JoinScene`|`JoinScene`| `string`|成员的入群方式
+`QuitScene`|`QuitScene`| `string`|成员的退群方式
+`MemChangeCnt`|`MemChangeCnt`| `int`|成员变更数量
+`MemChangeList`|`MemChangeList`| `[]string`|变更的成员列表
+`LastMemVer`|`LastMemVer`| `string`|变更前的群成员版本号
+`CurMemVer`|`CurMemVer`| `string`|变更后的群成员版本号
+
 
 ### `rxEventSysApprovalChange` 接收的事件消息，审批申请状态变化回调通知
 

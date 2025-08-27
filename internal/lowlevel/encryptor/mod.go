@@ -10,7 +10,7 @@ import (
 	"io"
 	"math"
 
-	"github.com/xen0n/go-workwx/v2/internal/lowlevel/pkcs7"
+	"github.com/t2krew/go-workwx/v2/internal/lowlevel/pkcs7"
 )
 
 type WorkwxPayload struct {
